@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workshop on Modeling and Simulation for Semiconductor Devices</title>
+
+  <style>
+    :root{
+      --fg: #0f172a;
+      --muted: #475569;
+      --line: rgba(15, 23, 42, 0.10);
+      --radius: 14px;
+      --maxw: 820px;
+
+      --accent: #2563eb;   /* blue */
+      --accent2: #7c3aed;  /* purple */
+    }
+
+    html, body{
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      color: var(--fg);
+      background: #fff;
+    }
+
+    a{ color: #1d4ed8; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    /* ===== Hero ===== */
+    .hero{
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      padding: 56px 0 34px;
+      background: #0b1020;
+    }
+
+    .hero::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("assets/hero-bg.png") center/cover no-repeat;
+      transform: scale(1.02);
+      opacity: 0.95;
+      filter: saturate(1.1) contrast(1.08);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(2,6,23,0.45), rgba(2,6,23,0.72));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-inner{
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 26px;
+    }
+
+    .hero h1{
+      margin: 0 0 10px;
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+
+    .hero-meta{
+      margin: 0 0 16px;
+      font-size: 15px;
+      color: #ffffff;
+      text-shadow: 0 10px 26px rgba(0,0,0,0.40);
+    }
+    .hero-meta strong{ color: #ffffff; }
+
+    .hero-actions{
+      position: relative;
+      z-index: 3;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn-hero{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.12);
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+    }
+    .btn-hero:hover{
+      text-decoration: none;
+      background: rgba(255,255,255,0.18);
+    }
+
+    .btn-hero-primary{
+      border: none;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 16px 40px rgba(37,99,235,0.22);
+    }
+    .btn-hero-primary:hover{ filter: brightness(1.05); }
+
+    /* ===== Body ===== */
+    main{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 32px 26px 40px;
+    }
+
+    section{
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2{
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+    }
+    h3{
+      margin: 12px 0 6px;
+      font-size: 16px;
+    }
+
+    ul{ margin: 8px 0 0 18px; }
+    li{ margin: 6px 0; }
+
+    .btn-light{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      color: #0b1020;
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      text-decoration: none;
+    }
+    .btn-light:hover{
+      text-decoration: none;
+      background: #eef2ff;
+    }
+
+    /* ===== Responsive PDF embed ===== */
+    .pdf-frame{
+    margin-top: 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #f8fafc;
+    }
+
+    /* Use a pure viewport height */
+    .pdf-obj,
+    .pdf-iframe{
+    display: block;
+    width: 100%;
+    height: 80vh;          /* adapts to device */
+    min-height: 560px;     /* prevents tiny embeds on desktop */
+    border: 0;
+    }
+
+    /* Mobile: use more height */
+    @media (max-width: 640px){
+    .pdf-obj,
+    .pdf-iframe{
+        height: 60vh;
+        min-height: 520px;
+    }
+    }
+
+    footer{
+      padding: 16px 0 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Workshop on Modeling and Simulation for Semiconductor Devices</h1>
+
+      <p class="hero-meta">
+        <strong>Date:</strong> January 20, 2026<br/>
+        <strong>Venue:</strong> S17, #04-05, Department of Mathematics, National University of Singapore
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-hero btn-hero-primary" href="assets/Abstracts.pdf" target="_blank" rel="noopener">View Abstracts</a>
+        <a class="btn-hero" href="#program">Program</a>
+        <a class="btn-hero" href="#speakers">Speakers</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="speakers">
+      <h2>Speakers</h2>
+
+      <h3>Plenary speakers</h3>
+      <ul>
+        <li><a href="https://www.vsmath.at/?people=juengel-ansgar">Ansgar Jüngel</a> (TU Vienna, Austria)</li>
+      </ul>
+
+      <h3>Invited speakers</h3>
+      <ul>
+        <li><a href="https://blog.nus.edu.sg/matcz/">Zhenning Cai</a> (NUS, Singapore)</li>
+        <li><a href="https://faculty.sdu.edu.cn/lixiaoli12/en/index.htm">Xiaoli Li</a> (Shandong University, China)</li>
+        <li>Shuya Liu (NUS, Singapore)</li>
+        <li>Wenhao Lu (NUS, Singapore)</li>
+        <li>Qingyuan Shi (Tsinghua University, China)</li>
+        <li>Maheswari Sivan (NUS, Singapore)</li>
+        <li>Quanzhen Wan (NUS, Singapore)</li>
+        <li>Zhe Wang (NUS, Singapore)</li>
+        <li><a href="https://www.eea.tsinghua.edu.cn/en/faculties/zhuang.htm">Chijie Zhuang</a> (Tsinghua University, China)</li>
+      </ul>
+    </section>
+
+    <section id="program">
+        <h2>Program</h2>
+
+        <div class="pdf-frame">
+            <object class="pdf-obj" data="assets/Program.pdf#view=FitH" type="application/pdf">
+            <iframe class="pdf-iframe" src="assets/Program.pdf#view=FitH" title="Workshop program (PDF)" loading="lazy"></iframe>
+
+            <p style="margin:0; padding: 12px;">
+                Your browser cannot display the PDF inline.
+                <a class="btn-light" href="assets/Program.pdf" target="_blank" rel="noopener">View PDF</a>
+            </p>
+            </object>
+        </div>
+
+        <p style="margin:10px 0 0;">
+            <a class="btn-light" href="assets/Program.pdf" target="_blank" rel="noopener">View PDF in a new tab</a>
+        </p>
+    </section>
+
+    <section id="abstracts">
+      <h2>Abstracts</h2>
+      <a class="btn-light" href="assets/Abstracts.pdf" target="_blank" rel="noopener">View Abstracts</a>
+    </section>
+
+    <section id="organizers">
+      <h2>Organizers</h2>
+      <ul>
+        <li><a href="https://blog.nus.edu.sg/matbwz/">Weizhu Bao</a> (NUS)</li>
+        <li><a href="https://liu-shuigen.github.io">Shuigen Liu</a> (NUS)</li>
+      </ul>
+    </section>
+
+    <footer>
+      <div><strong>Contact:</strong> shuigen.liu@nus.edu.sg</div>
+      <div style="margin-top:6px;">© 2026 · Department of Mathematics, NUS · GitHub Pages</div>
+    </footer>
+  </main>
+</body>
+</html>
